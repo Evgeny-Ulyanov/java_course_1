@@ -5,7 +5,7 @@ public class Test {
         Schoolar schoolar1 = new Schoolar("Ivan", 23);
         Schoolar schoolar2 = new Schoolar("Mariya", 15);
         Schoolar schoolar3 = new Schoolar("fgdfhg", 25);
-        Schoolar schoolar4 = new Schoolar("dsbdfb", 16);
+        Schoolar schoolar4 = new Schoolar("нгкигш", 16);
 
         Student student1 = new Student("Nikolay", 20);
         Student student2 = new Student("Kseniya", 18);

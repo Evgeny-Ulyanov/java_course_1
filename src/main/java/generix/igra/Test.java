@@ -22,8 +22,6 @@ public class Test {
         schoolarTeam.addNewParticipant(schoolar2);
         schoolarTeam2.addNewParticipant(schoolar3);
         schoolarTeam2.addNewParticipant(schoolar4);
-//        schoolarTeam.addNewParticipant(student1);
-//        schoolarTeam.addNewParticipant(employee1);
 
         studentTeam.addNewParticipant(student1);
         studentTeam.addNewParticipant(student2);

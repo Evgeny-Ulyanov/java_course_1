@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.ArrayList;
 import java.util.function.Supplier;
+import java.util.function.Consumer;
 
 public class Test3 {
 
@@ -13,15 +14,28 @@ public class Test3 {
         return arrayList;
     }
 
+    public static void changeCar(Car car, Consumer<Car> carConsumer) {
+        carConsumer.accept(car);
+    }
+
     public static void main(String[] args) {
         ArrayList<Car> cars = createThreeCars(() -> new Car("Nissan Tiida", "Silver", 1.6));
+        System.out.println(cars);
+
+        changeCar(cars.get(0)
+                , car -> {
+                    car.color = "red";
+                    car.engine = 2.4;
+                    System.out.println(car);
+                });
+
         System.out.println(cars);
     }
 
 }
 
 
-class Car{
+class Car {
     String model;
     String color;
     double engine;

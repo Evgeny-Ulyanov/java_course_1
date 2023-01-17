@@ -1,10 +1,8 @@
 package lambda;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 import java.util.function.Predicate;
+import java.util.function.Function;
 
 public class StudentInfo {
 
@@ -38,7 +36,8 @@ public class StudentInfo {
 //            }
 //        }
 //    }
-}
+    }
+
 
 class Test {
     public static void main(String[] args) {
@@ -57,6 +56,7 @@ class Test {
 
 
         StudentInfo info = new StudentInfo();
+
 //        Collections.sort(students, new Comparator<Student>() {
 //            @Override
 //            public int compare(Student s1, Student s2) {
@@ -80,10 +80,25 @@ class Test {
 //
 //        info.testStudents(students, (Student s) -> s.age > 20 && s.avgGrade < 9 && s.sex == 'f');
 
-        Predicate<Student> p1 = student -> student.avgGrade > 7.5;
-        Predicate<Student> p2 = student -> student.sex == 'm';
+//        Predicate<Student> p1 = student -> student.avgGrade > 7.5;
+//        Predicate<Student> p2 = student -> student.sex == 'm';
+//
+//        info.testStudents(students, p1.negate());
 
-        info.testStudents(students, p1.negate());
+        Function<Student, Double> f = student -> student.avgGrade;
+
+        double res = avgOfSmth(students, stud -> (double) stud.course);
+        System.out.println(res);
+    }
+
+    private static double avgOfSmth(List<Student> list, Function<Student, Double> f) {
+
+        double result = 0;
+        for (Student st : list) {
+            result += f.apply(st);
+        }
+        result = result / list.size();
+        return result;
 
     }
 }
